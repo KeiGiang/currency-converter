@@ -57,5 +57,10 @@ export const actions = {
       type: types.CURRENCY_DATA_CHANGED,
       rates
     })
+  },
+  fetchInitialRates: (dispatch, getState) => {
+    const state = getState();
+    const currencyCode = selectors.getCurrencyCode(state)
+    dispatch(actions.changeCurrencyCode(currencyCode))
   }
 }
