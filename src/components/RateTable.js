@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { selectors } from "reducers/user";
+import { selectors as ratesSelectors } from "reducers/rates";
+import { selectors as userSelectors } from "reducers/user";
 
 const RateTable = ({ currencyData, amount, name}) => {
   return (
@@ -33,7 +34,9 @@ const RateTable = ({ currencyData, amount, name}) => {
 }
 
 const mapStateToProps = state => ({
-  name: selectors.getName(state)
+  name: userSelectors.getName(state),
+  currencyData: ratesSelectors.getCurrencyData(state),
+  amount: ratesSelectors.getAmount(state)
 })
 
 export default connect(mapStateToProps)(RateTable)
