@@ -1,7 +1,8 @@
 import { createStore } from "redux";
 
 export const types = {
-  AMOUNT_CHANGED: 'AMOUNT_CHANGED'
+  AMOUNT_CHANGED: 'AMOUNT_CHANGED',
+  CURRENCY_CHANGED: 'CURRENCY_CHANGED'
 }
 
 const initialState = {
@@ -15,6 +16,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         amount: action.newAmount
+      }
+    case types.CURRENCY_CHANGED:
+      return {
+        ...state,
+        currencyCode: action.newCurrency
       }
     default:
       return state
@@ -30,6 +36,10 @@ export const actions = {
   changeAmount: (newAmount) => ({
     type: types.AMOUNT_CHANGED,
     newAmount
+  }),
+  changeCurrency: newCurrency => ({
+    type: types.CURRENCY_CHANGED,
+    newCurrency
   })
 }
 
