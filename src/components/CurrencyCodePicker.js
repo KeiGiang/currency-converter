@@ -1,8 +1,15 @@
-export function CurrencyCodePicker({
+import { connect } from "react-redux";
+import { actions, selectors } from "reducers/store";
+
+const CurrencyCodePicker = ({
+  dispatch,
   supportedCurrencies,
   currencyCode,
-  onChange,
-}) {
+}) => {
+  const onChange = event => {
+    dispatch(actions.changeCurrency(event.target.value))
+  }
+
   return (
     <select className="currencyCode" value={currencyCode} onChange={onChange}>
       {supportedCurrencies.map((code) => (
@@ -13,3 +20,9 @@ export function CurrencyCodePicker({
     </select>
   );
 }
+
+const mapStateToProps = state => ({
+  currencyCode: selectors.currencyCode(state)
+})
+
+export default connect(mapStateToProps)(CurrencyCodePicker)
