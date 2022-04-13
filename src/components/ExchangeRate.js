@@ -6,7 +6,7 @@ import { getExchangeRates } from "../api";
 
 const supportedCurrencies = ["USD", "EUR", "JPY", "CAD", "GBP", "MXN"];
 
-export function ExchangeRate() {
+const ExchangeRate = () => {
   const [amount, setAmount] = useState("1.50");
   const [currencyCode, setCurrencyCode] = useState("USD");
   const [currencyData, setCurrencyData] = useState({ USD: 1.0 });
@@ -49,3 +49,5 @@ export function ExchangeRate() {
     </>
   );
 }
+
+export default ExchangeRate

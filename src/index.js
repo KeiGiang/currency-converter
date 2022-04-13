@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { ExchangeRate } from "./components/ExchangeRate";
+import ExchangeRate from "./components/ExchangeRate";
 import { store } from "./reducers/store";
 import "./style.css";
 
