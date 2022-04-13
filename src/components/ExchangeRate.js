@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { selectors, supportedCurrencies } from 'reducers/rates'
+import { selectors } from 'reducers/rates'
 import RateTable from "./RateTable";
 import CurrencyCodePicker from "./CurrencyCodePicker";
 import AmountField from "./AmountField";
@@ -11,9 +11,7 @@ const ExchangeRate = ({ amount, currencyData }) => {
       <section>
         <h1 className="ExchangeRate-header">
           Exchange Rates{" "}
-          <CurrencyCodePicker
-            supportedCurrencies={supportedCurrencies}
-          />
+          <CurrencyCodePicker/>
         </h1>
       </section>
       <section>
