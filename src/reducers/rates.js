@@ -1,11 +1,15 @@
+export const supportedCurrencies = ["USD", "EUR", "JPY", "CAD", "GBP", "MXN"];
+
 export const types = {
   AMOUNT_CHANGED: 'RATES/AMOUNT_CHANGED',
-  CURRENCY_CHANGED: 'RATES/CURRENCY_CHANGED'
+  CURRENCY_CODE_CHANGED: 'RATES/CURRENCY_CODE_CHANGED',
+  CURRENCY_DATA_CHANGED: 'RATES/CURRENCY_DATA_CHANGED'
 }
 
 const initialState = {
   amount: 12,
-  currencyCode: 'USD'
+  currencyCode: 'USD',
+  currencyData: { USD: 1.0 }
 }
 
 export const ratesReducer = (state = initialState, action) => {
@@ -15,10 +19,15 @@ export const ratesReducer = (state = initialState, action) => {
         ...state,
         amount: action.newAmount
       }
-    case types.CURRENCY_CHANGED:
+    case types.CURRENCY_CODE_CHANGED:
       return {
         ...state,
         currencyCode: action.newCurrency
+      }
+    case types.CURRENCY_DATA_CHANGED:
+      return {
+        ...state,
+        currencyData: action.rates
       }
     default:
       return state
@@ -27,7 +36,8 @@ export const ratesReducer = (state = initialState, action) => {
 
 export const selectors = {
   getAmount: state => state.rates.amount,
-  getCurrencyCode: state => state.rates.currencyCode
+  getCurrencyCode: state => state.rates.currencyCode,
+  getCurrencyData: state => state.rates.currencyData
 }
 
 export const actions = {
@@ -35,8 +45,8 @@ export const actions = {
     type: types.AMOUNT_CHANGED,
     newAmount
   }),
-  changeCurrency: newCurrency => ({
-    type: types.CURRENCY_CHANGED,
+  changeCurrencyCode: newCurrency => ({
+    type: types.CURRENCY_CODE_CHANGED,
     newCurrency
   })
 }
