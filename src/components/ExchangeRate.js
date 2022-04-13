@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { connect } from 'react-redux'
 import { selectors } from 'reducers/rates'
-import { RateTable } from "./RateTable";
+import RateTable from "./RateTable";
 import CurrencyCodePicker from "./CurrencyCodePicker";
 import AmountField from "./AmountField";
 import { getExchangeRates } from "../api";
