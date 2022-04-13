@@ -18,7 +18,7 @@ const AmountField = ({ dispatch, amount }) => {
 }
 
 const mapStateToProps = state => ({
-  amount: selectors.amount(state),
+  amount: selectors.getAmount(state),
 })
 
 export default connect(mapStateToProps)(AmountField)

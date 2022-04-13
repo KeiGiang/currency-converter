@@ -39,8 +39,8 @@ const ExchangeRate = ({ amount, currencyCode }) => {
 }
 
 const mapStateToProps = state => ({
-  amount: selectors.amount(state),
-  currencyCode: selectors.currencyCode(state)
+  amount: selectors.getAmount(state),
+  currencyCode: selectors.getCurrencyCode(state)
 })
 
 export default connect(mapStateToProps)(ExchangeRate)

@@ -26,8 +26,8 @@ export const ratesReducer = (state = initialState, action) => {
 }
 
 export const selectors = {
-  amount: state => state.rates.amount,
-  currencyCode: state => state.rates.currencyCode
+  getAmount: state => state.rates.amount,
+  getCurrencyCode: state => state.rates.currencyCode
 }
 
 export const actions = {

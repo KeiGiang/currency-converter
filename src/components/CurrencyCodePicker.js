@@ -22,7 +22,7 @@ const CurrencyCodePicker = ({
 }
 
 const mapStateToProps = state => ({
-  currencyCode: selectors.currencyCode(state)
+  currencyCode: selectors.getCurrencyCode(state)
 })
 
 export default connect(mapStateToProps)(CurrencyCodePicker)
