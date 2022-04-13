@@ -2,6 +2,18 @@
 
 A simple currency exchange calculator built to demonstrate using redux with react hooks.
 
+Based on the tutorial found at https://egghead.io/lessons/react-introducing-redux-with-react-hooks
+
+## Deviations from tutorial
+
+* Changed how reducer actions, selectors, and types are declared and called
+
+* All components receive state data directly from store instead of via parent component
+
+* Modified testing utils & testing strategy to work in new setup
+
+* Added support for absolute paths when importing
+
 ### Setup
 
 `yarn` or `npm install`
