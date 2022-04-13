@@ -1,3 +1,5 @@
+import { getExchangeRates } from "api";
+
 export const supportedCurrencies = ["USD", "EUR", "JPY", "CAD", "GBP", "MXN"];
 
 export const types = {
@@ -45,8 +47,15 @@ export const actions = {
     type: types.AMOUNT_CHANGED,
     newAmount
   }),
-  changeCurrencyCode: newCurrency => ({
-    type: types.CURRENCY_CODE_CHANGED,
-    newCurrency
-  })
+  changeCurrencyCode: newCurrency => async dispatch => {
+    dispatch({
+      type: types.CURRENCY_CODE_CHANGED,
+      newCurrency
+    })
+    const rates = await getExchangeRates(newCurrency, supportedCurrencies)
+    dispatch({
+      type: types.CURRENCY_DATA_CHANGED,
+      rates
+    })
+  }
 }
