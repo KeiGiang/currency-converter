@@ -7,7 +7,7 @@ const CurrencyCodePicker = ({
   currencyCode,
 }) => {
   const onChange = event => {
-    dispatch(actions.changeCurrency(event.target.value))
+    dispatch(actions.changeCurrencyCode(event.target.value))
   }
 
   return (
