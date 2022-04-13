@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { actions, selectors } from "reducers/store";
+import { actions, selectors } from "reducers/rates";
 
 const CurrencyCodePicker = ({
   dispatch,
